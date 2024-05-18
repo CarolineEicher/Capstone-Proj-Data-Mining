@@ -1,19 +1,34 @@
 #Load the necessary packages
 library(tidyverse)
 library(httr)
+library(jsonlite)
 
 # Load the API key
-api_key <- readr::read_csv("API_key.csv")$API_key
+api <- readr::read_csv("API_key.csv")$API_key
 
-# Get the location IDs
+# Set up storage for all locations
+all_locations <- tibble()
+
+# Get the locations
 url_search <- "https://api.content.tripadvisor.com/api/v1/location/search"
 
 queryString <- list(
-  searchQuery = "formentera"
+  key = api,
+  searchQuery = "formentera",
   category = "attractions",
   language = "en"
 )
 
-response <- VERB("GET", url, query = queryString, content_type("application/octet-stream"), accept("application/json"))
+response <- VERB("GET", url_search, query = queryString, content_type("application/octet-stream"), accept("application/json"))
 
-content(response, "text")
+if(status_code(response) == 200) {
+  search_data <- content(response, "text") %>% 
+    fromJSON()
+  
+  locations <- search_data$data
+  
+  all_locations <- bind_rows(all_locations, locations)
+} else {
+  print(paste("Failed to get locations. Status code:", status_code(response)))
+}
+
