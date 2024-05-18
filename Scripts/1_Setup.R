@@ -79,5 +79,12 @@ for(i in 1:nrow(locations_formentera)) {
   }
 }
   
-  
-  
+# Save the data to a CSV file
+reviews_formentera <- tibble(all_reviews$id,
+                             all_reviews$location_id,
+                             all_reviews$published_date,
+                             all_reviews$rating,
+                             all_reviews$text,
+                             all_reviews$title,
+                             all_reviews$trip_type)
+write_csv(reviews_formentera, "Data/reviews_formentera.csv")  
