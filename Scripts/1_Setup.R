@@ -16,7 +16,8 @@ queryString <- list(
   key = api,
   searchQuery = "formentera",
   category = "attractions",
-  language = "en"
+  language = "en",
+  limit = 50
 )
 
 response <- VERB("GET", url_search, query = queryString, content_type("application/octet-stream"), accept("application/json"))
@@ -32,3 +33,6 @@ if(status_code(response) == 200) {
   print(paste("Failed to get locations. Status code:", status_code(response)))
 }
 
+# Filter the locations for Formentera
+locations_formentera <- all_locations |> 
+  filter(all_locations$address_obj$state == "Formentera")
