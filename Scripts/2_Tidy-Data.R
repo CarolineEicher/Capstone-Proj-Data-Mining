@@ -30,3 +30,6 @@ View(data_formentera)
 #Remove NA
 data_formentera <- data_formentera |>
   filter(!is.na(review_id))
+
+#Save the data
+write_csv(data_formentera, "Data/data_formentera.csv")
