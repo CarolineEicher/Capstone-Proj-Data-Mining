@@ -77,6 +77,7 @@ for(i in 1:nrow(locations_formentera)) {
   } else {
     print(paste("Failed to get reviews for location", location_id, ". Status code:", status_code(response)))
   }
+  Sys.sleep(0.5)
 }
   
 # Save the data to a CSV file
