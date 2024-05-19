@@ -16,8 +16,7 @@ data_formentera |>
   ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
   geom_bar(stat = "identity", fill = "skyblue") +
   coord_flip() +
-  labs(title = "Top 5 attractions in Formentera for couples",
-       x = "Attraction",
+  labs(x = "Attraction",
        y = "Mean Rating") +
   theme_minimal()
 
@@ -35,8 +34,7 @@ data_formentera |>
   ggplot(aes(x = reorder(name, n), y = n)) +
   geom_bar(stat = "identity", fill = "skyblue") +
   coord_flip() +
-  labs(title = "Top 5 attractions in Formentera most rated by couples",
-       x = "Attraction",
+  labs(x = "Attraction",
        y = "Number of Ratings") +
   theme_minimal()
 
