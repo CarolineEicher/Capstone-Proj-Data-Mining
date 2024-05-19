@@ -37,5 +37,4 @@ According to these two plots the best attraction for couples to visit in Forment
 # Conclusion
 In conclusion, "Formentera Divers" is the best attraction for couples to visit in Formentera. It has the highest rating and the most ratings from couples of all other attractions.
 However, it is important to note that the data I collected is limited to only 8 attractions and a maximum of 10 reviews per attraction. So the results are not representative of all the attractions in Formentera. Further research is needed to determine the best attractions for couples to visit in Formentera. One possibility would be to change the platform to collect the data. For example to use Google Places API. 
-What I learned in this project is that it is important to check the documentation of the API before starting to collect the data. If there are limitations in the results, it is important to find a solution to get more results.
-
+What I learned in this project is that it is important to check the documentation of the API before starting to collect the data.
