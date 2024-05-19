@@ -31,8 +31,11 @@ include_graphics("../Visualizations/attractions_best-rated-by-couples.png")
 include_graphics("../Visualizations/attractions_most-rated-by-couples.png")
 ```
 
-According to these two plots the best attraction for couples to visit in Formentera is "Formentera Divers". It has the highest rating and the most ratings from couples of all other attractions. But to determine if it really is the best attraction for couples to visit in Formentera I also looked at the ratings of other types of travelling groups.
-```{r incluse-image, echo=FALSE}
+According to these two plots the best attraction for couples to visit in Formentera is "Formentera Divers". It has the highest rating and the most ratings from couples of all other attractions. But to determine if it is the best attraction only for couples or also for different travel groups I also looked at the ratings of other types of travelling groups. 
+"Formentera Divers" has ratings from only two types of travelling groups: couples and families. Families also rated the attraction 5 stars. But there were only two ratings from families. So this attraction is the most popular with couples.
 
-```
+# Conclusion
+In conclusion, "Formentera Divers" is the best attraction for couples to visit in Formentera. It has the highest rating and the most ratings from couples of all other attractions.
+However, it is important to note that the data I collected is limited to only 8 attractions and a maximum of 10 reviews per attraction. So the results are not representative of all the attractions in Formentera. Further research is needed to determine the best attractions for couples to visit in Formentera. One possibility would be to change the platform to collect the data. For example to use Google Places API. 
+What I learned in this project is that it is important to check the documentation of the API before starting to collect the data. If there are limitations in the results, it is important to find a solution to get more results.
 
