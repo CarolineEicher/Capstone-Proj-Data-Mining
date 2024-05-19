@@ -51,3 +51,17 @@ data_formentera |>
   summarise(n = n()) |>
   arrange(desc(n)) |>
   head(5)
+
+#How was "Formentera Divers" rated by different travelling groups?
+data_formentera |>
+  filter(name == "Formentera Divers") |>
+  group_by(trip_type) |>
+  summarise(mean_rating = mean(rating)) |>
+  arrange(desc(mean_rating))
+
+#How many ratings does "Formentera Divers" have from different travelling groups?
+data_formentera |>
+  filter(name == "Formentera Divers") |>
+  group_by(trip_type) |>
+  summarise(n = n()) |>
+  arrange(desc(n))
