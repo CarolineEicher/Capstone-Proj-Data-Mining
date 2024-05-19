@@ -16,7 +16,7 @@ Formentera is a beautiful island in the Mediterranean Sea. It is the smallest of
 # Data Collection
 I collected data on the top attractions in Formentera from TripAdvisor. I used the Tripadvisor API to extract information on the attractions, including their names, locations, ratings, and reviews. Unfortunately, the API only allowed me to extract data of 10 attractions with the search query "formentera". Of those 10 attractions, two were not in Formentera, so I only have data on 8 attractions. The same problem occured when I extracted the data on the reviews for each attraction. The API gave me a maximum of 10 reviews per attraction. The documentation gave no information about a limitation of results or on how to get more than 10 results per request. So I was looking for solutions on the internet and found a stackoverflow and a google groups post where someone had the same problem in 2019. But there was no solution to the problem. So I decided to use the data I have and to work with it.
 
-# Data Analysis and Results
+# Results
 I analyzed the data on the top attractions in Formentera to identify the best attractions for couples to visit. I looked at the ratings and reviews of each attraction to determine which ones are the best and most rated from couples.
 ```{r}
 #Load packages
