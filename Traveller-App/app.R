@@ -1,5 +1,11 @@
+# Load packages ----
 library(shiny)
 library(bslib)
+library(tidyverse)
+library(ggplot2)
+
+#Load data ----
+data_formentera <- read_csv("./Data/data_formentera.csv")
 
 # Define UI ----
 ui <- page_sidebar(
@@ -12,26 +18,27 @@ ui <- page_sidebar(
       "destination",
       label = "Destination",
       choices = list(
-        "Formentera" = 1
+        "Formentera"
         ),
-      selected = 1
+      selected = "Formentera"
     ),
     selectInput(
       "location_type",
       label = "Location Type",
       choices = list(
-        "Attractions" = 1
+        "Attractions"
       ),
-      selected = 1
+      selected = "Attractions"
     ),
     selectInput(
       "travel_type",
       label = "Your Travel Group Type",
       choices = list(
-        "Couple" = 1, 
-        "Family" = 2, 
-        "Friends Getaway" = 3, 
-        "Solo Traveller" = 4)
+        "Couples", 
+        "Family", 
+        "Friends getaway", 
+        "Solo travel"),
+      selected = "Couples"
     )
   ),
   card(
@@ -41,24 +48,61 @@ ui <- page_sidebar(
     your fellow travellers ratings.",
     card_footer("Happy Travelling!")
     ),
-  textOutput("selected_destination"),
-  textOutput("selected_location_type"),
-  textOutput("selected_travel_type")
+  card(plotOutput("selected_travel_interests"))
 )
 
 # Define server logic ----
 server <- function(input, output) {
-  output$selected_destination <- renderText({
-    "You have selected"
-    input$destination
-  })
-  output$selected_location_type <- renderText({
-    "You have selected"
-    input$location_type
-  })
-  output$selected_travel_type <- renderText({
-    "You have selected"
-    input$travel_type
+  output$selected_travel_type <- renderPlot({
+    data <- switch(input$travel_type,
+                   "Couples" = data_formentera |>
+                     filter(trip_type == "Couples") |>
+                     group_by(name) |>
+                     summarise(mean_rating = mean(rating)) |>
+                     arrange(desc(mean_rating)) |>
+                     head(5) |> 
+                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
+                     geom_bar(stat = "identity", fill = "skyblue") +
+                     coord_flip() +
+                     labs(x = "Attraction",
+                          y = "Mean Rating") +
+                     theme_minimal(),
+                   "Family" = data_formentera |>
+                     filter(trip_type == "Family") |>
+                     group_by(name) |>
+                     summarise(mean_rating = mean(rating)) |>
+                     arrange(desc(mean_rating)) |>
+                     head(5) |> 
+                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
+                     geom_bar(stat = "identity", fill = "skyblue") +
+                     coord_flip() +
+                     labs(x = "Attraction",
+                          y = "Mean Rating") +
+                     theme_minimal(),
+                   "Friends getaway" = data_formentera |>
+                     filter(trip_type == "Friends getaway") |>
+                     group_by(name) |>
+                     summarise(mean_rating = mean(rating)) |>
+                     arrange(desc(mean_rating)) |>
+                     head(5) |> 
+                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
+                     geom_bar(stat = "identity", fill = "skyblue") +
+                     coord_flip() +
+                     labs(x = "Attraction",
+                          y = "Mean Rating") +
+                     theme_minimal(),
+                   "Solo travel" = data_formentera |>
+                     filter(trip_type == "Solo travel") |>
+                     group_by(name) |>
+                     summarise(mean_rating = mean(rating)) |>
+                     arrange(desc(mean_rating)) |>
+                     head(5) |> 
+                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
+                     geom_bar(stat = "identity", fill = "skyblue") +
+                     coord_flip() +
+                     labs(x = "Attraction",
+                          y = "Mean Rating") +
+                     theme_minimal())
   })
 }
 
