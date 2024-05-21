@@ -9,28 +9,27 @@ ui <- page_sidebar(
       "Choose your Travel Interests"
       ),
     selectInput(
-      "location",
-      label = "Location:",
+      "destination",
+      label = "Destination",
       choices = list(
         "Formentera" = 1
         ),
       selected = 1
     ),
-    selectInput(
+    checkboxGroupInput(
       "travel type",
-      label = "Your Travel Type:",
+      label = "Your Travel Group Type:",
       choices = list(
         "Couple" = 1, 
         "Family" = 2, 
-        "Friends getaway" = 3, 
-        "Solo traveller" = 4),
-      selected = 1
+        "Friends Getaway" = 3, 
+        "Solo Traveller" = 4)
     )
   ),
   card(
     card_header("Welcome to the Traveller App"),
-    "This app is designed to help you find the best travel destinations for your interests based on your 
-    fellow travellers experiences. Select your interests and we will show the best destinations for you!",
+    "This app is designed to help you planing your next trip. Select your interests and 
+    we will show the must see places for you in your next travel destination.",
     card_footer("Happy Travelling!")
     )
 )
