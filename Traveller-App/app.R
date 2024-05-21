@@ -16,6 +16,14 @@ ui <- page_sidebar(
         ),
       selected = 1
     ),
+    selectInput(
+      "location type",
+      label = "Location Type",
+      choices = list(
+        "Attractions" = 1
+      ),
+      selected = 1
+    ),
     checkboxGroupInput(
       "travel type",
       label = "Your Travel Group Type:",
@@ -29,7 +37,8 @@ ui <- page_sidebar(
   card(
     card_header("Welcome to the Traveller App"),
     "This app is designed to help you planing your next trip. Select your interests and 
-    we will show the must see places for you in your next travel destination.",
+    we will show the must see places for you in your next travel destination based on 
+    your fellow travellers ratings.",
     card_footer("Happy Travelling!")
     )
 )
