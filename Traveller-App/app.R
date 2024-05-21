@@ -4,7 +4,29 @@ library(bslib)
 # Define UI ----
 ui <- page_sidebar(
   title = "Hello Traveller!",
-  sidebar = sidebar("Choose your Travel Interests"),
+  sidebar = sidebar(
+    helpText(
+      "Choose your Travel Interests"
+      ),
+    selectInput(
+      "location",
+      label = "Location:",
+      choices = list(
+        "Formentera" = 1
+        ),
+      selected = 1
+    ),
+    selectInput(
+      "travel type",
+      label = "Your Travel Type:",
+      choices = list(
+        "Couple" = 1, 
+        "Family" = 2, 
+        "Friends getaway" = 3, 
+        "Solo traveller" = 4),
+      selected = 1
+    )
+  ),
   card(
     card_header("Welcome to the Traveller App"),
     "This app is designed to help you find the best travel destinations for your interests based on your 
