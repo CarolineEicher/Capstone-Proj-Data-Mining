@@ -17,16 +17,16 @@ ui <- page_sidebar(
       selected = 1
     ),
     selectInput(
-      "location type",
+      "location_type",
       label = "Location Type",
       choices = list(
         "Attractions" = 1
       ),
       selected = 1
     ),
-    checkboxGroupInput(
-      "travel type",
-      label = "Your Travel Group Type:",
+    selectInput(
+      "travel_type",
+      label = "Your Travel Group Type",
       choices = list(
         "Couple" = 1, 
         "Family" = 2, 
@@ -40,12 +40,26 @@ ui <- page_sidebar(
     we will show the must see places for you in your next travel destination based on 
     your fellow travellers ratings.",
     card_footer("Happy Travelling!")
-    )
+    ),
+  textOutput("selected_destination"),
+  textOutput("selected_location_type"),
+  textOutput("selected_travel_type")
 )
 
 # Define server logic ----
 server <- function(input, output) {
-  
+  output$selected_destination <- renderText({
+    "You have selected"
+    input$destination
+  })
+  output$selected_location_type <- renderText({
+    "You have selected"
+    input$location_type
+  })
+  output$selected_travel_type <- renderText({
+    "You have selected"
+    input$travel_type
+  })
 }
 
 # Run the app ----
