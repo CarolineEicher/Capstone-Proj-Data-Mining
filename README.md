@@ -7,7 +7,7 @@ The Scripts folder contains the scripts I used to mine, tidy and analyze the dat
 The Visualizations folder contains the visualizations I created with the data.
 The Output folder contains a markdown file with a short report of the project.
 
-I am currently working on a shiny app that will allow you to explore the data interactively. In the Traveller-App folder you can find the code for the app.
+In the Traveller-App folder you find a shiny app that will allow you to explore the data interactively.
 
 I hope you enjoy my project! If you have any questions or suggestions, feel free to contact me.
 
