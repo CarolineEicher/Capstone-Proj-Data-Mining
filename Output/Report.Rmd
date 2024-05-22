@@ -36,10 +36,11 @@ According to these two plots the best attraction for couples to visit in Forment
 "Formentera Divers" has ratings from only two types of travelling groups: couples and families. Families also rated the attraction 5 stars. But there were only two ratings from families. So this attraction is the most popular with couples.
 
 ## Shiny App
-I tried to create a shiny app that will help travellers to plan their next trip to Formentera. The app will show the must see places for each travel type based on the ratings of their fellow travellers. The app is not finished yet. I have some problems with the interactive feature of the app.
+I created a shiny app that will help travelers to plan their next trip to Formentera. The Traveller App shows the best rated attractions for each travel type based on the ratings of their fellow travelers. The app allows users to select their destination, location type, and travel group type. The app will then show the must see places for the selected travel group type. The app is interactive and allows users to explore the data in more detail. The app could be developed further to show other destinations or location types such as hotels or restaurants. 
+
 
 ## Conclusion
 In conclusion, "Formentera Divers" is the best attraction for couples to visit in Formentera. It has the highest rating and the most ratings from couples of all other attractions.
 However, it is important to note that the data I collected is limited to only 8 attractions and a maximum of 10 reviews per attraction. So the results are not representative of all the attractions in Formentera. Further research is needed to determine the best attractions for couples to visit in Formentera. One possibility would be to change the platform to collect the data. For example to use Google Places API. 
 What I learned in this project is that it is important to check the possibilities of an API thoroughly before starting to collect the data. I also learned that it is important to have a plan B in case the API does not provide the data you need. 
-I also went the first steps in learning about how to create a shiny app. I have never worked with shiny before and I learned a lot about it. I will continue to work on the app and try to solve the problems I have with the interactive feature.
+I also went the first steps in learning about how to create a shiny app. I have never worked with shiny before and I learned a lot about it. I think it is a great tool to visualize data and to make it interactive. I will definitely use it in the future for other projects. 
