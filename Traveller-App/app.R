@@ -48,7 +48,7 @@ ui <- page_sidebar(
     your fellow travellers ratings.",
     card_footer("Happy Travelling!")
     ),
-  card(plotOutput("selected_travel_interests"))
+  card(plotOutput("selected_travel_type"))
 )
 
 # Define server logic ----
@@ -60,51 +60,34 @@ server <- function(input, output) {
                      group_by(name) |>
                      summarise(mean_rating = mean(rating)) |>
                      arrange(desc(mean_rating)) |>
-                     head(5) |> 
-                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
-                     geom_bar(stat = "identity", fill = "skyblue") +
-                     coord_flip() +
-                     labs(x = "Attraction",
-                          y = "Mean Rating") +
-                     theme_minimal(),
+                     head(5),
                    "Family" = data_formentera |>
                      filter(trip_type == "Family") |>
                      group_by(name) |>
                      summarise(mean_rating = mean(rating)) |>
                      arrange(desc(mean_rating)) |>
-                     head(5) |> 
-                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
-                     geom_bar(stat = "identity", fill = "skyblue") +
-                     coord_flip() +
-                     labs(x = "Attraction",
-                          y = "Mean Rating") +
-                     theme_minimal(),
+                     head(5),
                    "Friends getaway" = data_formentera |>
                      filter(trip_type == "Friends getaway") |>
                      group_by(name) |>
                      summarise(mean_rating = mean(rating)) |>
                      arrange(desc(mean_rating)) |>
-                     head(5) |> 
-                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
-                     geom_bar(stat = "identity", fill = "skyblue") +
-                     coord_flip() +
-                     labs(x = "Attraction",
-                          y = "Mean Rating") +
-                     theme_minimal(),
+                     head(5),
                    "Solo travel" = data_formentera |>
                      filter(trip_type == "Solo travel") |>
                      group_by(name) |>
                      summarise(mean_rating = mean(rating)) |>
                      arrange(desc(mean_rating)) |>
-                     head(5) |> 
-                     ggplot(aes(x = reorder(name, mean_rating), y = mean_rating)) +
-                     geom_bar(stat = "identity", fill = "skyblue") +
-                     coord_flip() +
-                     labs(x = "Attraction",
-                          y = "Mean Rating") +
-                     theme_minimal())
+                     head(5)
+    )
+    
+    ggplot(data, aes(x = reorder(name, mean_rating), y = mean_rating)) +
+      geom_bar(stat = "identity", fill = "skyblue") +
+      coord_flip() +
+      labs(x = "Attraction",
+           y = "Mean Rating") +
+      theme_minimal()
   })
 }
-
 # Run the app ----
 shinyApp(ui = ui, server = server)
